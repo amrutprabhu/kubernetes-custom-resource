@@ -3,6 +3,7 @@ kind: CustomResourceDefinition
 metadata:
   name: amrut-crds.com.amrut.prabhu
 spec:
+  preserveUnknownFields: false
   group: com.amrut.prabhu
   names:
     kind: amrut-crd
