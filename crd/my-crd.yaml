@@ -8,6 +8,8 @@ spec:
   names:
     kind: amrut-crd
     plural: amrut-crds
+    listKind: amrut-crd-list
+    singular: amrut-crd
   scope: Namespaced
   versions:
     - name: v1
