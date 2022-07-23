@@ -1,0 +1,26 @@
+name: Build Project
+
+on: [ push, pull_request ]
+
+jobs:
+  verify-project-build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        projects: [ 'kubernetes-controller' ]
+    name: ${{ matrix.projects }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: 17.0
+          distribution: 'adopt'
+          java-package: 'jdk'
+
+      - name: Build the project
+        working-directory: ${{ matrix.projects }}
+        run: mvn clean verify
