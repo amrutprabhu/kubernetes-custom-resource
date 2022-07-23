@@ -21,6 +21,10 @@ jobs:
           distribution: 'adopt'
           java-package: 'jdk'
 
+      - name: Check Maven Version
+        working-directory: ${{ matrix.projects }}
+        run: mvn --version
+
       - name: Build the project
         working-directory: ${{ matrix.projects }}
         run: mvn clean verify
